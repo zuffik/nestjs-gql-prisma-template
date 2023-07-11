@@ -1,5 +1,5 @@
-import {IsEnum, IsInt, IsString} from "class-validator";
-import {Environment} from "./environment";
+import { IsEnum, IsInt, IsString } from 'class-validator';
+import { Environment } from './environment';
 
 export class EnvironmentVariables {
   @IsEnum(Environment)
