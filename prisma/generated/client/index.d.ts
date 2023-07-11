@@ -78,7 +78,6 @@ export class PrismaClient<
    */
 
   constructor(optionsArg?: Prisma.Subset<T, Prisma.PrismaClientOptions>);
-
   $on<V extends U | 'beforeExit'>(
     eventType: V,
     callback: (
@@ -180,9 +179,7 @@ export class PrismaClient<
    */
   $transaction<P extends Prisma.PrismaPromise<any>[]>(
     arg: [...P],
-    options?: {
-      isolationLevel?: Prisma.TransactionIsolationLevel;
-    },
+    options?: { isolationLevel?: Prisma.TransactionIsolationLevel },
   ): Promise<runtime.Types.Utils.UnwrapTuple<P>>;
 
   $transaction<R>(
@@ -209,10 +206,14 @@ export class PrismaClient<
 
 export namespace Prisma {
   export import DMMF = runtime.DMMF;
+
+  export type PrismaPromise<T> = $Public.PrismaPromise<T>;
+
   /**
    * Validator
    */
   export import validator = runtime.Public.validator;
+
   /**
    * Prisma Errors
    */
@@ -222,6 +223,7 @@ export namespace Prisma {
   export import PrismaClientInitializationError = runtime.PrismaClientInitializationError;
   export import PrismaClientValidationError = runtime.PrismaClientValidationError;
   export import NotFoundError = runtime.NotFoundError;
+
   /**
    * Re-export of sql-template-tag
    */
@@ -230,13 +232,11 @@ export namespace Prisma {
   export import join = runtime.join;
   export import raw = runtime.raw;
   export import Sql = runtime.Sql;
+
   /**
    * Decimal.js
    */
   export import Decimal = runtime.Decimal;
-  export import getExtensionContext = runtime.Extensions.getExtensionContext;
-
-  export type PrismaPromise<T> = $Public.PrismaPromise<T>;
 
   export type DecimalJsLike = runtime.DecimalJsLike;
 
@@ -252,7 +252,7 @@ export namespace Prisma {
    * Extensions
    */
   export type Extension = $Extensions.UserArgs;
-
+  export import getExtensionContext = runtime.Extensions.getExtensionContext;
   export type Args<T, F extends $Public.Operation> = $Public.Args<T, F>;
   export type Payload<T, F extends $Public.Operation> = $Public.Payload<T, F>;
   export type Result<T, A, F extends $Public.Operation> = $Public.Result<
@@ -351,7 +351,6 @@ export namespace Prisma {
      */
     class DbNull {
       private DbNull: never;
-
       private constructor();
     }
 
@@ -364,7 +363,6 @@ export namespace Prisma {
      */
     class JsonNull {
       private JsonNull: never;
-
       private constructor();
     }
 
@@ -377,7 +375,6 @@ export namespace Prisma {
      */
     class AnyNull {
       private AnyNull: never;
-
       private constructor();
     }
   }
@@ -620,8 +617,8 @@ export namespace Prisma {
   export type Merge<U extends object> = ComputeRaw<_Merge<Strict<U>>>;
 
   /**
-   A [[Boolean]]
-   */
+  A [[Boolean]]
+  */
   export type Boolean = True | False;
 
   // /**
@@ -630,8 +627,8 @@ export namespace Prisma {
   export type True = 1;
 
   /**
-   0
-   */
+  0
+  */
   export type False = 0;
 
   export type Not<B extends Boolean> = {
@@ -1180,7 +1177,6 @@ export namespace Prisma {
       types: Prisma.TypeMap<ExtArgs>['model']['Test'];
       meta: { name: 'Test' };
     };
-
     /**
      * Find zero or one Test that matches the filter.
      * @param {TestFindUniqueArgs} args - Arguments to find a Test
@@ -1617,7 +1613,6 @@ export namespace Prisma {
     private _callsite;
     private _requestPromise?;
     readonly [Symbol.toStringTag]: 'PrismaPromise';
-
     constructor(
       _dmmf: runtime.DMMFClass,
       _queryType: 'query' | 'mutation',
@@ -1631,7 +1626,6 @@ export namespace Prisma {
     );
 
     private get _document();
-
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1648,7 +1642,6 @@ export namespace Prisma {
         | undefined
         | null,
     ): Promise<TResult1 | TResult2>;
-
     /**
      * Attaches a callback for only the rejection of the Promise.
      * @param onrejected The callback to execute when the Promise is rejected.
@@ -1660,7 +1653,6 @@ export namespace Prisma {
         | undefined
         | null,
     ): Promise<T | TResult>;
-
     /**
      * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
      * resolved value cannot be modified from the callback.

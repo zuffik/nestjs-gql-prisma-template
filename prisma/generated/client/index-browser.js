@@ -132,7 +132,6 @@ In case this error is unexpected for you, please report it in https://github.com
     );
   }
 }
-
 exports.PrismaClient = PrismaClient;
 
 Object.assign(exports, Prisma);

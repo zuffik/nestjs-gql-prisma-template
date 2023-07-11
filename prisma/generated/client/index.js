@@ -113,8 +113,7 @@ const config = {
       value: 'prisma-client-js',
     },
     output: {
-      value:
-        '/Users/kristianzuffa/workspace/work/vivse.sk/backend/prisma/generated/client',
+      value: '/usr/src/app/prisma/generated/client',
       fromEnvVar: null,
     },
     config: {
@@ -123,7 +122,7 @@ const config = {
     binaryTargets: [
       {
         fromEnvVar: null,
-        value: 'darwin',
+        value: 'linux-musl-openssl-3.0.x',
         native: true,
       },
       {
@@ -137,6 +136,10 @@ const config = {
       {
         fromEnvVar: null,
         value: 'linux-musl',
+      },
+      {
+        fromEnvVar: null,
+        value: 'linux-musl-openssl-3.0.x',
       },
     ],
     previewFeatures: [],
@@ -182,6 +185,12 @@ warnEnvConflicts({
 const PrismaClient = getPrismaClient(config);
 exports.PrismaClient = PrismaClient;
 Object.assign(exports, Prisma);
+
+path.join(__dirname, 'libquery_engine-linux-musl-openssl-3.0.x.so.node');
+path.join(
+  process.cwd(),
+  'prisma/generated/client/libquery_engine-linux-musl-openssl-3.0.x.so.node',
+);
 
 path.join(__dirname, 'libquery_engine-darwin.dylib.node');
 path.join(
